@@ -3,7 +3,9 @@ import axios from 'axios';
 
 // Async thunk to fetch posts from Reddit
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get('https://www.reddit.com/r/popular.json');
+  const response = await axios.get(
+  'https://cors-anywhere.herokuapp.com/https://www.reddit.com/r/popular.json'
+);
   return response.data.data.children.map((post) => post.data);
 });
 
